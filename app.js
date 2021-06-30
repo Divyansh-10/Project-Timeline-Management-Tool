@@ -18,19 +18,15 @@ google.charts.setOnLoadCallback(drawChart);
 
       //[task ID, task name, start date, end data, duration , percent complet, dependencies]
 
+       let arr = [
+         ['Initiation', 'Initiation',  new Date(2021, 0, 1), new Date(2021, 5 , 1), null,  100,  null],
+         [ 'Planning' , 'Planning', null, null, daysToMilliseconds(30), 25, 'Initiation'],
+         ['Execution', 'Execution',  null, null, daysToMilliseconds(30), 20, 'Planning'],
+         ['Deployment', 'Deployment',null, null, daysToMilliseconds(60), 0, 'Execution'],
+         ['Testing', 'Testing', null, null, daysToMilliseconds(30), 100, 'Deployment']
+       ];
 
-      data.addRows([
-        ['Initiation', 'Initiation',
-         new Date(2021, 0, 1), new Date(2021, 5 , 1), null,  100,  null],
-        [ 'Planning' , 'Planning',
-         null, null, daysToMilliseconds(30), 25, 'Initiation'],
-        ['Execution', 'Execution',
-         null, null, daysToMilliseconds(30), 20, 'Planning'],
-        ['Deployment', 'Deployment',
-         null, null, daysToMilliseconds(60), 0, 'Execution'],
-        ['Testing', 'Testing',
-         null, null, daysToMilliseconds(30), 100, 'Deployment']
-      ]);
+      data.addRows(arr);
 
       var options = {
         height: 275
